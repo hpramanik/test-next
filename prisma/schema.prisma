@@ -18,9 +18,9 @@ model dynamicDashboard {
   slug       String   @unique
   title      String
   createdAt  DateTime @default(now()) @map("created_at")
-  createdBy  String
+  createdBy  String   @map("created_by")
   updatedAt  DateTime @updatedAt @map("updated_at")
-  updateBy   String
+  updateBy   String   @map("updated_by")
   layoutJSON Json     @map("layout_json")
 
   @@map("dynamic_dashboard")
@@ -30,11 +30,12 @@ model dashboardComponent {
   id            String   @id @default(uuid())
   name          String
   component     String
-  dataUrl       String
-  dataUrlMethod String   @default("GET")
-  isInternal    Boolean  @default(true)
+  storybookUrl  String?  @map("storybook_url")
+  dataUrl       String   @map("data_url")
+  dataUrlMethod String   @default("GET") @map("data_url_method")
+  isExternal    Boolean? @default(false) @map("is_external")
   createdAt     DateTime @default(now()) @map("created_at")
-  createdBy     String
+  createdBy     String   @map("created_by")
   updatedAt     DateTime @updatedAt @map("updated_at")
-  updateBy      String
+  updateBy      String   @map("updated_by")
 }
