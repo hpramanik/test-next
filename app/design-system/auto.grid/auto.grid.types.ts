@@ -1,4 +1,4 @@
-import type { ResponsiveProps } from 'react-grid-layout';
+import type { ResponsiveProps } from "react-grid-layout";
 
 export interface DynamicProps {
   data: unknown;
@@ -11,6 +11,7 @@ export interface AutoGridComponent {
     | React.ComponentClass<DynamicProps>
     | null;
   props?: unknown;
+  hidden?: boolean;
 }
 
 export interface AutoGridProps {

@@ -21,13 +21,16 @@ export const AutoGrid = ({
     inlineStyle.border = "medium dashed blue";
   }
 
-  const renderComponents = (): ReactNode => {
+  const renderComponents = (): ReactNode[] => {
     return components.map((component) => {
-      return (
-        <div key={component.name} style={inlineStyle}>
-          {autoGridComponentRenderer(component)}
-        </div>
-      );
+      if (!component.hidden)
+        return (
+          <div key={component.name} style={inlineStyle}>
+            {autoGridComponentRenderer(component)}
+          </div>
+        );
+
+      return null;
     });
   };
 
