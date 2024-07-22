@@ -17,13 +17,24 @@ model dynamicDashboard {
   id         String   @id @default(uuid())
   slug       String   @unique
   title      String
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime @default(now()) @map("created_at")
+  createdBy  String
+  updatedAt  DateTime @updatedAt @map("updated_at")
+  updateBy   String
   layoutJSON Json     @map("layout_json")
 
   @@map("dynamic_dashboard")
 }
 
 model dashboardComponent {
-  is
+  id            String   @id @default(uuid())
+  name          String
+  component     String
+  dataUrl       String
+  dataUrlMethod String   @default("GET")
+  isInternal    Boolean  @default(true)
+  createdAt     DateTime @default(now()) @map("created_at")
+  createdBy     String
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  updateBy      String
 }
