@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@cubejs-client/core": "^0.35.23",
     "@fullcalendar/core": "^6.1.15",
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/interaction": "^6.1.15",
@@ -18,6 +19,7 @@
     "@fullcalendar/react": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
     "@headlessui/react": "^2.1.2",
+    "bizcharts": "^4.1.23",
     "chart.js": "^4.4.3",
     "class-variance-authority": "^0.7.0",
     "file-saver": "^2.0.5",
