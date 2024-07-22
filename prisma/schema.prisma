@@ -12,3 +12,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model dynamicDashboard {
+  id         String   @id @default(uuid())
+  slug       String   @unique
+  title      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  layoutJSON Json     @map("layout_json")
+
+  @@map("dynamic_dashboard")
+}
+
+model dashboardComponent {
+  is
+}
